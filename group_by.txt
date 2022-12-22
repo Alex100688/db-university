@@ -3,6 +3,21 @@ Contare quanti iscritti ci sono stati ogni anno
     from `students`
     GROUP BY `iscrizioni`;
 
+
 Contare gli insegnanti che hanno l'ufficio nello stesso edificio
+    SELECT COUNT(`id`) AS `numero_insegnanti`, `office_address` AS `indirizzo_ufficio`
+    FROM `teachers`
+    WHERE  `office_address` = 'Strada Vitali 8 Piano 0'
+    GROUP BY `indirizzo_ufficio`;
 
 
+Calcolare la media dei voti di ogni appello d'esame
+    SELECT AVG(`vote`) AS `voto`, `exam_id` AS `appelli_esame`
+        FROM `exam_student` 
+        GROUP BY `appelli_esame`;
+
+
+Contare quanti corsi di laurea ci sono per ogni dipartimento
+    SELECT COUNT(`name`) AS `corso_laurea`, `department_id` AS `numero_dipartimenti`
+    FROM `degrees`
+    GROUP BY `numero_dipartimenti`;
